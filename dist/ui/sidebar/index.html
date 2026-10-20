@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Metadata</title>
+    <link rel="stylesheet" href="sidebar.css" />
+  </head>
+  <body>
+    <main id="main" aria-live="polite"></main>
+
+    <section id="fix" class="panel" hidden>
+      <h2>Find the right match</h2>
+      <form id="search-form">
+        <div class="row">
+          <label class="grow">Title <input id="search-title" type="text" required /></label>
+          <label class="narrow">Year <input id="search-year" type="number" min="1870" max="2100" /></label>
+        </div>
+        <div class="row">
+          <label class="grow">
+            Type
+            <select id="search-kind">
+              <option value="movie">Movie</option>
+              <option value="episode">TV episode</option>
+            </select>
+          </label>
+          <label class="narrow tv-only">Season <input id="search-season" type="number" min="0" /></label>
+          <label class="narrow tv-only">Episode <input id="search-episode" type="number" min="0" /></label>
+        </div>
+        <div class="row actions">
+          <button type="submit">Search</button>
+          <button type="button" data-action="close-fix" class="plain">Cancel</button>
+        </div>
+      </form>
+      <p id="search-status" class="muted small"></p>
+      <ul id="candidates" class="candidates"></ul>
+    </section>
+
+    <section id="token" class="panel">
+      <details id="token-details">
+        <summary id="token-summary">TMDB token</summary>
+        <div id="token-missing">
+          <p class="small">
+            Movies (and the richest TV data) come from TMDB, which needs a free
+            <em>API Read Access Token</em> from
+            <a href="#" data-link="https://www.themoviedb.org/settings/api">themoviedb.org/settings/api</a>.
+            It is stored in your Keychain. TV episodes also work without it, via TVmaze.
+          </p>
+          <form id="token-form" class="row">
+            <input id="token-input" class="grow" type="password" placeholder="API Read Access Token" autocomplete="off" required />
+            <button type="submit">Save</button>
+          </form>
+        </div>
+        <div id="token-present" hidden>
+          <p class="small">A TMDB token is stored in your Keychain.</p>
+          <button type="button" data-action="forget-token" class="plain">Remove token</button>
+        </div>
+        <p id="token-status" class="small"></p>
+      </details>
+    </section>
+
+    <footer class="small muted">
+      <a href="#" data-link="https://www.themoviedb.org" class="tmdb-logo">
+        <img
+          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
+          alt="TMDB"
+        />
+      </a>
+      This product uses the TMDB API but is not endorsed or certified by TMDB. TV data may come from
+      <a href="#" data-link="https://www.tvmaze.com">TVmaze</a> (CC BY-SA).
+    </footer>
+
+    <script src="sidebar.js"></script>
+  </body>
+</html>

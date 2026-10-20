@@ -1,0 +1,6 @@
+node_modules/
+*.iinaplgz
+.env
+
+# IINA installs plugins from the repository contents, so the built bundles are committed.
+!dist/

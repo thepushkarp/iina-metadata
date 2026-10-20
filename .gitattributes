@@ -1,0 +1,2 @@
+# Built bundles are committed because IINA installs plugins from the repository contents.
+dist/** linguist-generated=true -diff

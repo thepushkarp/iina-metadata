@@ -1,0 +1,44 @@
+[
+ {
+  "score": 1.1831541,
+  "show": {
+   "id": 169,
+   "name": "Breaking Bad",
+   "premiered": "2008-01-20",
+   "summary": "<p><b>Breaking Bad</b> follows protagonist Walter White, a chemistry teacher who lives in New Mexico with his wife and teenage son who has cerebral palsy. White is diagnosed with Stage III cancer and given a prognosis of two years left to live. With a new sense of fearlessness based on his medical prognosis, and a desire to secure his family's financial security, White chooses to enter a dangerous world of drugs and crime and ascends to power in this world. The series explores how a fatal diagnosis such as White's releases a typical man from the daily concerns and constraints of normal society and follows his transformation from mild family man to a kingpin of the drug trade.</p>",
+   "image": {
+    "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/501/1253519.jpg",
+    "original": "https://static.tvmaze.com/uploads/images/original_untouched/501/1253519.jpg"
+   },
+   "weight": 100
+  }
+ },
+ {
+  "score": 0.8860862,
+  "show": {
+   "id": 27845,
+   "name": "Breaking Bad: Original Minisodes",
+   "premiered": "2009-02-17",
+   "summary": "<p>Watch Hank and Marie as they celebrate Valentine's Day in the bedroom in \"Good Cop, Bad Cop\". View a flashback to Hank and Marie's wedding as the groom discusses with Walt his last wild night as a bachelor in \"Wedding Day\". Go inside Jesse's band TwaughtHammer as he and Badger make a behind-the-music documentary, and sing along to the full music video for their song \"Fallacies\". Finally, watch Marie discuss politics and patriotism in her personal video diary, \"Marie's Confession\".</p>",
+   "image": {
+    "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/216/540867.jpg",
+    "original": "https://static.tvmaze.com/uploads/images/original_untouched/216/540867.jpg"
+   },
+   "weight": 92
+  }
+ },
+ {
+  "score": 0.5293025,
+  "show": {
+   "id": 1003,
+   "name": "Talking Bad",
+   "premiered": "2013-08-11",
+   "summary": "<p><b>Talking Bad</b> features Hardwick spending time with fans, actors, producers and tv enthusiasts, recapping the most recent <i>Breaking Bad</i> episode, and taking questions and comments from viewers. Fans may continue to engage with the after-show following the on-air conclusion, online, at amc.com for more videos, weekly polls and photo galleries of the guests featured on the series.</p>",
+   "image": {
+    "medium": "https://static.tvmaze.com/uploads/images/medium_portrait/6/16586.jpg",
+    "original": "https://static.tvmaze.com/uploads/images/original_untouched/6/16586.jpg"
+   },
+   "weight": 93
+  }
+ }
+]

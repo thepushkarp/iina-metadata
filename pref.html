@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      h3 {
+        font-size: 13px;
+        margin: 16px 0 6px;
+      }
+      h3:first-child {
+        margin-top: 0;
+      }
+      .indent {
+        margin-left: 20px;
+      }
+      label {
+        display: block;
+        margin: 3px 0;
+      }
+      input[type="text"] {
+        width: 100%;
+        margin-top: 2px;
+      }
+      code {
+        font-size: 11px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Looking up</h3>
+    <div class="pref-section">
+      <label><input type="checkbox" data-type="bool" data-pref-key="auto_identify" /> Look up metadata when a file opens</label>
+      <label><input type="checkbox" data-type="bool" data-pref-key="show_osd" /> Show a message on the video when a match is found</label>
+      <label><input type="checkbox" data-type="bool" data-pref-key="set_media_title" /> Use the matched title in Now Playing and history</label>
+      <div style="margin-top: 6px">
+        Language for titles and overviews:
+        <input type="text" data-pref-key="language" placeholder="System language, e.g. en-US, fr-FR, ja-JP" />
+        <p class="small secondary pref-help">
+          A TMDB language code. Its region (the part after the dash) also picks which country's age
+          rating is used. The TMDB token is managed in the Metadata sidebar and kept in your Keychain.
+        </p>
+      </div>
+    </div>
+
+    <h3>Save into the video file</h3>
+    <div class="pref-section">
+      <label><input type="checkbox" data-type="bool" data-pref-key="embed_enabled" /> Write tags into MKV and MP4 files</label>
+      <div class="indent">
+        <p class="small secondary pref-help">
+          Title, overview, release date, genres and TV numbering are always included. MKV/WebM is
+          edited in place with <code>mkvpropedit</code>; MP4/M4V with <code>AtomicParsley</code>, which
+          rewrites the file when its tags don't fit (needs free space about the size of the file).
+        </p>
+        <label><input type="checkbox" data-type="bool" data-pref-key="embed_cover" /> Poster as cover art</label>
+        <label><input type="checkbox" data-type="bool" data-pref-key="embed_landscape_cover" /> Landscape cover from the backdrop or episode still (MKV only)</label>
+        <label><input type="checkbox" data-type="bool" data-pref-key="embed_people" /> Cast, directors and writers</label>
+        <label><input type="checkbox" data-type="bool" data-pref-key="embed_ids" /> TMDB/IMDb ids (lets the plugin recognize the file after renaming)</label>
+        <label><input type="checkbox" data-type="bool" data-pref-key="embed_content_rating" /> Age rating (MP4 accepts US ratings only)</label>
+      </div>
+    </div>
+
+    <h3>Save files next to the video</h3>
+    <div class="pref-section">
+      <label><input type="checkbox" data-type="bool" data-pref-key="sidecar_enabled" /> Write sidecar files (read by Infuse, Kodi, Jellyfin, Emby, Plex)</label>
+      <div class="indent">
+        <label><input type="checkbox" data-type="bool" data-pref-key="sidecar_nfo" /> .nfo metadata</label>
+        <label><input type="checkbox" data-type="bool" data-pref-key="sidecar_poster" /> Poster</label>
+        <label><input type="checkbox" data-type="bool" data-pref-key="sidecar_fanart" /> Fanart (backdrop)</label>
+        <label><input type="checkbox" data-type="bool" data-pref-key="sidecar_episode_thumb" /> Episode thumbnail</label>
+        <label><input type="checkbox" data-type="bool" data-pref-key="sidecar_show_level" /> Show and season files (tvshow.nfo, show poster/fanart, season poster) for Show/Season N/ folders</label>
+        <div style="margin-top: 6px">
+          File naming:
+          <label><input type="radio" name="sidecar_style" value="infuse" /> Infuse — <code>Movie.jpg</code>, <code>Season 1-poster.jpg</code></label>
+          <label><input type="radio" name="sidecar_style" value="kodi" /> Kodi / Jellyfin — <code>Movie-poster.jpg</code>, <code>season01-poster.jpg</code></label>
+        </div>
+      </div>
+    </div>
+
+    <h3>Existing files and artwork</h3>
+    <div class="pref-section">
+      When a sidecar file already exists:
+      <label><input type="radio" name="existing_files" value="replace" /> Replace it (the old one goes to the Trash)</label>
+      <label><input type="radio" name="existing_files" value="skip" /> Keep it</label>
+      <div style="margin-top: 6px">
+        Artwork size:
+        <label><input type="radio" name="artwork_size" value="standard" /> Standard (posters 780px, backdrops 1280px wide)</label>
+        <label><input type="radio" name="artwork_size" value="original" /> Original (largest available)</label>
+      </div>
+    </div>
+
+    <h3>Tools</h3>
+    <div class="pref-section">
+      MKVToolNix folder:
+      <input type="text" data-pref-key="mkvtoolnix_dir" placeholder="Auto-detect in /opt/homebrew/bin and /usr/local/bin" />
+      <div style="margin-top: 6px">
+        AtomicParsley path:
+        <input type="text" data-pref-key="atomicparsley_path" placeholder="Auto-detect in /opt/homebrew/bin and /usr/local/bin" />
+      </div>
+      <p class="small secondary pref-help">Install both with <code>brew install mkvtoolnix atomicparsley</code>.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "id": 62086,
+  "name": "Cat's in the Bag...",
+  "overview": "Walt and Jesse attempt to tie up loose ends.",
+  "air_date": "2008-01-27",
+  "season_number": 1,
+  "episode_number": 2,
+  "still_path": "/still.jpg",
+  "vote_average": 8.2,
+  "vote_count": 200,
+  "runtime": 48,
+  "crew": [
+    { "name": "Adam Bernstein", "job": "Director", "department": "Directing" },
+    { "name": "Vince Gilligan", "job": "Writer", "department": "Writing" }
+  ],
+  "credits": {
+    "cast": [
+      { "name": "Bryan Cranston", "character": "Walter White" },
+      { "name": "Aaron Paul", "character": "Jesse Pinkman" }
+    ],
+    "crew": []
+  },
+  "external_ids": { "imdb_id": "tt1054724", "tvdb_id": 349232 }
+}

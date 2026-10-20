@@ -1,0 +1,51 @@
+{
+  "name": "Metadata",
+  "identifier": "io.github.thepushkarp.iina-metadata",
+  "version": "0.1.0",
+  "ghRepo": "thepushkarp/iina-metadata",
+  "ghVersion": 1,
+  "description": "Identifies movies and TV episodes like Infuse (TMDB, with TVmaze for TV) and saves the details into MKV/MP4 files and as .nfo and artwork files next to them.",
+  "author": {
+    "name": "Pushkar Patel",
+    "url": "https://github.com/thepushkarp"
+  },
+  "entry": "dist/index.js",
+  "permissions": [
+    "show-osd",
+    "network-request",
+    "file-system"
+  ],
+  "allowedDomains": [
+    "api.themoviedb.org",
+    "image.tmdb.org",
+    "api.tvmaze.com",
+    "static.tvmaze.com"
+  ],
+  "sidebarTab": {
+    "name": "Metadata"
+  },
+  "preferencesPage": "pref.html",
+  "preferenceDefaults": {
+    "auto_identify": true,
+    "show_osd": true,
+    "set_media_title": true,
+    "language": "",
+    "embed_enabled": true,
+    "embed_cover": true,
+    "embed_landscape_cover": true,
+    "embed_people": true,
+    "embed_ids": true,
+    "embed_content_rating": true,
+    "sidecar_enabled": true,
+    "sidecar_nfo": true,
+    "sidecar_poster": true,
+    "sidecar_fanart": true,
+    "sidecar_episode_thumb": true,
+    "sidecar_show_level": true,
+    "sidecar_style": "infuse",
+    "existing_files": "replace",
+    "artwork_size": "standard",
+    "mkvtoolnix_dir": "",
+    "atomicparsley_path": ""
+  }
+}

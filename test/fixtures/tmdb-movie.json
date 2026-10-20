@@ -1,0 +1,34 @@
+{
+  "id": 27205,
+  "imdb_id": "tt1375666",
+  "title": "Inception",
+  "original_title": "Inception",
+  "release_date": "2010-07-15",
+  "overview": "Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his targets is offered a chance to regain his old life as payment for a task considered to be impossible: \"inception\", the implantation of another person's idea into a target's subconscious.",
+  "tagline": "Your mind is the scene of the crime.",
+  "genres": [{ "id": 28, "name": "Action" }, { "id": 878, "name": "Science Fiction" }],
+  "vote_average": 8.369,
+  "vote_count": 36000,
+  "runtime": 148,
+  "poster_path": "/poster.jpg",
+  "backdrop_path": "/backdrop.jpg",
+  "production_companies": [{ "name": "Legendary Pictures" }, { "name": "Syncopy" }],
+  "credits": {
+    "cast": [
+      { "name": "Leonardo DiCaprio", "character": "Dom Cobb", "order": 0 },
+      { "name": "Joseph Gordon-Levitt", "character": "Arthur", "order": 1 }
+    ],
+    "crew": [
+      { "name": "Christopher Nolan", "job": "Director", "department": "Directing" },
+      { "name": "Christopher Nolan", "job": "Screenplay", "department": "Writing" },
+      { "name": "Emma Thomas", "job": "Producer", "department": "Production" }
+    ]
+  },
+  "release_dates": {
+    "results": [
+      { "iso_3166_1": "GB", "release_dates": [{ "certification": "12A", "type": 3 }] },
+      { "iso_3166_1": "US", "release_dates": [{ "certification": "", "type": 1 }, { "certification": "PG-13", "type": 3 }] }
+    ]
+  },
+  "external_ids": { "imdb_id": "tt1375666" }
+}

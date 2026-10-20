@@ -1,0 +1,315 @@
+:root {
+  --text: rgba(0, 0, 0, 0.88);
+  --muted: rgba(0, 0, 0, 0.55);
+  --line: rgba(0, 0, 0, 0.1);
+  --fill: rgba(0, 0, 0, 0.05);
+  --accent: #0a64d6;
+  --ok: #1b8a3a;
+  --warn: #b26b00;
+  --bad: #c62828;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: rgba(255, 255, 255, 0.9);
+    --muted: rgba(255, 255, 255, 0.55);
+    --line: rgba(255, 255, 255, 0.12);
+    --fill: rgba(255, 255, 255, 0.07);
+    --accent: #4c9bff;
+    --ok: #5fd07c;
+    --warn: #ffb44c;
+    --bad: #ff6b6b;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 12px 12px 16px;
+  font: 12px/1.45 -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  -webkit-user-select: text;
+}
+
+h1 {
+  font-size: 16px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 16px 0 6px;
+}
+
+p {
+  margin: 6px 0;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.small {
+  font-size: 11px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+.badge {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  background: var(--fill);
+}
+
+.badge.high {
+  color: var(--ok);
+}
+
+.badge.low {
+  color: var(--warn);
+}
+
+.backdrop {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  background: var(--fill);
+}
+
+.heading {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.poster {
+  width: 72px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 5px;
+  flex: none;
+  background: var(--fill);
+}
+
+.facts {
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.tagline {
+  font-style: italic;
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.chip {
+  padding: 1px 7px;
+  border-radius: 9px;
+  background: var(--fill);
+  font-size: 11px;
+}
+
+.people li {
+  margin: 1px 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 4px;
+}
+
+button {
+  font: inherit;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--fill);
+  color: var(--text);
+  cursor: default;
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+
+button.plain {
+  background: none;
+  border-color: transparent;
+  color: var(--accent);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+.plan li,
+.results li {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  gap: 2px 6px;
+  padding: 5px 0;
+  border-top: 1px solid var(--line);
+}
+
+.plan .icon,
+.results .icon {
+  grid-row: span 3;
+  text-align: center;
+}
+
+.target {
+  font: 11px ui-monospace, Menlo, monospace;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.write .icon,
+.ok .icon {
+  color: var(--ok);
+}
+
+.replace .icon {
+  color: var(--accent);
+}
+
+.skip .icon {
+  color: var(--muted);
+}
+
+.unavailable .icon,
+.failed .icon {
+  color: var(--bad);
+}
+
+.message.error {
+  color: var(--bad);
+}
+
+.panel {
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  display: flex;
+  gap: 6px;
+  align-items: flex-end;
+  margin: 6px 0;
+}
+
+.row label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.grow {
+  flex: 1;
+  min-width: 0;
+}
+
+.narrow {
+  width: 64px;
+}
+
+input,
+select {
+  font: inherit;
+  color: var(--text);
+  background: var(--fill);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 3px 6px;
+  width: 100%;
+}
+
+.candidates li {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  margin: 0 -6px;
+  border-radius: 6px;
+}
+
+.candidates li:hover {
+  background: var(--fill);
+}
+
+.candidates img,
+.candidates .no-poster {
+  width: 40px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: 3px;
+  flex: none;
+  background: var(--fill);
+}
+
+.candidates .overview {
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+summary {
+  margin: 12px 0 4px;
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+footer {
+  margin-top: 16px;
+}
+
+.tmdb-logo img {
+  height: 10px;
+  vertical-align: baseline;
+  margin-right: 4px;
+}

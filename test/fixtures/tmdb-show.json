@@ -1,0 +1,20 @@
+{
+  "id": 1396,
+  "name": "Breaking Bad",
+  "original_name": "Breaking Bad",
+  "first_air_date": "2008-01-20",
+  "overview": "Walter White, a New Mexico chemistry teacher, is diagnosed with Stage III cancer.",
+  "genres": [{ "id": 18, "name": "Drama" }, { "id": 80, "name": "Crime" }],
+  "vote_average": 8.9,
+  "vote_count": 15000,
+  "networks": [{ "name": "AMC" }],
+  "poster_path": "/show-poster.jpg",
+  "backdrop_path": "/show-backdrop.jpg",
+  "seasons": [
+    { "season_number": 0, "poster_path": "/specials.jpg" },
+    { "season_number": 1, "poster_path": "/season1.jpg" }
+  ],
+  "credits": { "cast": [{ "name": "Bryan Cranston", "character": "Walter White" }] },
+  "content_ratings": { "results": [{ "iso_3166_1": "US", "rating": "TV-MA" }] },
+  "external_ids": { "imdb_id": "tt0903747", "tvdb_id": 81189 }
+}
