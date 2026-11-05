@@ -80,5 +80,6 @@ const first=data.screenshots[0];
   iframe { display:block; width:100%;flex:1;min-height:0; border:0; color-scheme:normal; }
   img { display:block; width:100%; height:auto; }
   @media(max-width:760px) { .mac-menu { gap:12px;flex-wrap:wrap; }.mac-menu > span:last-child { display:none; }.video-title { font-size:26px;bottom:18px;left:18px; }.player-controls { margin-left:0; }#metadata-sidebar { width:100%; }.iina-workspace:not(.sidebar-closed) .player-controls { visibility:hidden; }.demo-toolbar { flex-wrap:wrap; }.window-title { text-align:left;font-size:11px; } }
+  @media(max-width:760px) { .mac-menu { position:relative;z-index:3; }.plugin-menu { position:static; }#plugin-options { left:auto;right:12px;max-width:calc(100% - 24px);white-space:normal; }.mac-menu button,.demo-toolbar button,.playback-row button { min-height:44px; }.timeline input { min-height:44px; }.player-controls { padding:12px; }.playback-row { gap:8px; }.window-title { flex-basis:calc(100% - 65px); } }
   [hidden] { display:none!important; }
 </style>

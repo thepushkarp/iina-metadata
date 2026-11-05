@@ -20,6 +20,6 @@ html=html.replace('<head>',`<head>${csp}<script>window.demoState=${JSON.stringif
  .replace('<script src="sidebar.js"></script>',`<p id="demo-notice" class="small muted" role="status"></p><script>${script}</script>`)
  .replace(/<img\s+src="https:\/\/www.themoviedb.org[\s\S]*?\/>/,'<strong>TMDB</strong>');
 // Native webview colors need stronger contrast on the fixed browser backdrop.
-html=html.replace('</head>','<style>:root:not([data-theme=dark]){--ok:#176d31}:root[data-theme=dark] button.primary{color:#10213a}a{text-decoration:underline;text-underline-offset:2px}</style></head>');
+html=html.replace('</head>','<style>:root:not([data-theme=dark]){--ok:#176d31}:root[data-theme=dark] button.primary{color:#10213a}a{text-decoration:underline;text-underline-offset:2px}@media(pointer:coarse){button,[data-candidate]{min-height:44px}input,select{font-size:16px;min-height:44px}}</style></head>');
 await Bun.write(resolve(import.meta.dir,'../public/demo/index.html'),html);
 console.log('Built self-contained IINA demo from the real plugin sidebar.');
