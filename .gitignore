@@ -4,3 +4,6 @@ node_modules/
 
 # IINA installs plugins from the repository contents, so the built bundles are committed.
 !dist/
+
+# Keep landing source trackable when global MkDocs rules ignore /site.
+!/site/

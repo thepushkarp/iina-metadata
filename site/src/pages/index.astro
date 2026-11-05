@@ -1,0 +1,16 @@
+---
+import data from '../content.json';
+import PageHead from '../components/PageHead.astro';
+import ThemeControl from '../components/ThemeControl.astro';
+import Demo from '../components/Demo.astro';
+import Install from '../components/Install.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/site.css';
+---
+<!doctype html><html lang="en"><head><PageHead /></head><body class="iina-metadata">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header shell"><a class="wordmark" href="/"><img src="/favicon.svg" width="32" height="32" alt="" />Metadata <span class="version-label">for IINA</span></a><nav aria-label="Main navigation"><a href="#demo">Preview</a><a href="#install">Add to IINA</a><a href={data.repo}>GitHub</a></nav><ThemeControl /></header>
+<main id="main" class="shell">
+<section class="catalogue-intro" aria-labelledby="hero-title"><div class="catalogue-story"><h1 id="hero-title">There’s a story<br />behind that filename.</h1><p class="lead">Identify movies and TV episodes in IINA. Review the match, then save metadata and artwork with your video.</p><div class="filename"><span>Your file</span><code>Spring.2019.1080p.mkv</code></div><div class="actions"><a class="button" href="#install">Add Metadata to IINA</a></div><p class="requirements">For IINA 1.5 on macOS. Movies need a free TMDB token.</p></div><figure class="demo-figure sidebar-capture" id="demo"><Demo /></figure></section>
+<Install />
+</main><Footer /></body></html>

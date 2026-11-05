@@ -1,0 +1,94 @@
+---
+import data from '../content.json';
+import MobilePreview from './MobilePreview.astro';
+const first=data.screenshots[0];
+---
+<MobilePreview alt="IINA playing Spring, with the Metadata sidebar on the left showing the matched film and the files it can save." width={1140} height={738} />
+<div class="interactive-preview desktop-demo">
+  <div class="demo-live" hidden>
+    <div class="mac-menu"><strong>IINA</strong><span>File</span><span>Playback</span><span>Video</span><span>Audio</span><div class="plugin-menu"><button id="plugin-menu" type="button" aria-expanded="false" aria-controls="plugin-options">Plugin</button><div id="plugin-options" hidden><button id="show-metadata" type="button">Metadata → Show Metadata</button></div></div><span>Window</span></div>
+    <div class="demo-toolbar"><span class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></span><span class="window-title">Spring.2019.1080p.mkv</span><button id="toggle-sidebar" type="button" aria-pressed="true">Metadata</button><button id="reset-demo" type="button">Reset</button></div>
+    <div class="iina-workspace">
+      <aside id="metadata-sidebar" aria-label="IINA plugin sidebar"><div class="sidebar-tabs"><span>Playlist</span><strong>Metadata</strong></div><iframe id="app-demo" title="IINA Metadata interactive sample" sandbox="allow-scripts allow-forms" loading="lazy" data-src="/demo/index.html"></iframe></aside>
+      <section class="player" aria-label="IINA video player">
+        <div class="video-picture"><img src="/artwork/spring.jpg" alt="Spring by Blender Studio" /><span class="video-title">Spring</span></div>
+        <div class="player-controls"><div class="timeline"><span id="player-time">0:00</span><input id="player-seek" type="range" min="0" max="480" value="0" aria-label="IINA playback position" /><span>8:00</span></div><div class="playback-row"><button id="player-back" type="button" aria-label="Seek back 10 seconds">−10s</button><button id="player-play" type="button">Play</button><button id="player-forward" type="button" aria-label="Seek forward 10 seconds">+10s</button><button id="player-mute" type="button" aria-pressed="false">Mute</button></div></div>
+      </section>
+    </div>
+  </div>
+  <noscript><a href={first.src}><picture><source media="(prefers-color-scheme: dark)" srcset={first.darkSrc} /><img src={first.src} alt={first.alt} width={first.width} height={first.height} /></picture></a><p>Enable JavaScript to try the interactive demo.</p></noscript>
+</div>
+<script>
+  function initDemo() {
+  const frame=document.querySelector<HTMLIFrameElement>('#app-demo')!;
+  const preference=matchMedia('(prefers-color-scheme: dark)');
+  const sidebar=document.querySelector<HTMLElement>('#metadata-sidebar')!;
+  const sidebarToggle=document.querySelector<HTMLButtonElement>('#toggle-sidebar')!;
+  const menu=document.querySelector<HTMLElement>('#plugin-options')!;
+  const menuButton=document.querySelector<HTMLButtonElement>('#plugin-menu')!;
+  function showSidebar(show:boolean) {sidebar.hidden=!show;sidebarToggle.setAttribute('aria-pressed',String(show));document.querySelector('.iina-workspace')!.classList.toggle('sidebar-closed',!show);}
+  sidebarToggle.addEventListener('click',()=>showSidebar(!!sidebar.hidden));
+  menuButton.addEventListener('click',()=>{menu.hidden=!menu.hidden;menuButton.setAttribute('aria-expanded',String(!menu.hidden));});
+  document.querySelector('#show-metadata')!.addEventListener('click',()=>{showSidebar(true);menu.hidden=true;menuButton.setAttribute('aria-expanded','false');sidebarToggle.focus();});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!menu.hidden){menu.hidden=true;menuButton.setAttribute('aria-expanded','false');menuButton.focus();}});
+  let position=0,playing=false;
+  const seek=document.querySelector<HTMLInputElement>('#player-seek')!;
+  const play=document.querySelector<HTMLButtonElement>('#player-play')!;
+  function renderPlayer(){seek.value=String(position);document.querySelector('#player-time')!.textContent=`${Math.floor(position/60)}:${String(position%60).padStart(2,'0')}`;play.textContent=playing?'Pause':'Play';}
+  play.addEventListener('click',()=>{if(position===480)position=0;playing=!playing;renderPlayer();});
+  seek.addEventListener('input',()=>{position=Number(seek.value);renderPlayer();});
+  document.querySelector('#player-back')!.addEventListener('click',()=>{position=Math.max(0,position-10);renderPlayer();});
+  document.querySelector('#player-forward')!.addEventListener('click',()=>{position=Math.min(480,position+10);renderPlayer();});
+  const mute=document.querySelector<HTMLButtonElement>('#player-mute')!;
+  mute.addEventListener('click',()=>{const muted=mute.getAttribute('aria-pressed')!=='true';mute.setAttribute('aria-pressed',String(muted));mute.textContent=muted?'Unmute':'Mute';});
+  setInterval(()=>{if(playing&&!document.hidden){position=Math.min(480,position+1);if(position===480)playing=false;renderPlayer();}},1000);
+  function syncTheme() {
+    const theme=document.documentElement.dataset.theme || (preference.matches?'dark':'light');
+    frame.contentWindow?.postMessage({type:'landing-theme',theme},'*');
+  }
+  frame.addEventListener('load',syncTheme);
+  window.addEventListener('message',event=>{if(event.source===frame.contentWindow&&event.data?.type==='demo-ready')syncTheme();});
+  window.addEventListener('appearancechange',syncTheme);
+  preference.addEventListener('change',syncTheme);
+  document.querySelector('#reset-demo')!.addEventListener('click',()=>{frame.src=frame.dataset.src!;position=0;playing=false;renderPlayer();showSidebar(true);mute.setAttribute('aria-pressed','false');mute.textContent='Mute';menu.hidden=true;menuButton.setAttribute('aria-expanded','false');});
+  document.querySelector<HTMLElement>('.demo-live')!.hidden=false;
+  frame.src=frame.dataset.src!;
+  }
+  const mobile=matchMedia('(max-width:900px), (hover:none) and (pointer:coarse)');
+  function startDesktopDemo() {
+    if(mobile.matches)return;
+    initDemo();mobile.removeEventListener('change',startDesktopDemo);
+  }
+  mobile.addEventListener('change',startDesktopDemo);
+  startDesktopDemo();
+</script>
+<style>
+  .interactive-preview { overflow:hidden; border:1px solid var(--line); border-radius:12px; background:var(--surface);box-shadow:0 25px 65px #0002; }
+  .mac-menu { display:flex;align-items:center;gap:18px;padding:5px 16px;background:var(--soft);font:12px/1.6 -apple-system,sans-serif; }
+  .mac-menu button { border:0;background:none;color:var(--ink);font:inherit;padding:4px;cursor:pointer; }
+  .plugin-menu { position:relative;z-index:2; }
+  #plugin-options { position:absolute;top:100%;left:0;background:var(--surface);border:1px solid var(--line);padding:5px;border-radius:6px;box-shadow:0 8px 25px #0003;white-space:nowrap; }
+  #plugin-options button { padding:10px; }
+  .traffic-lights { display:flex;gap:7px;flex:none; }.traffic-lights i { width:11px;height:11px;border-radius:50%;background:#ff6058; }.traffic-lights i:nth-child(2){background:#febc2e}.traffic-lights i:nth-child(3){background:#28c840}
+  .window-title { flex:1;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+  #toggle-sidebar[aria-pressed=true] { color:var(--accent);background:var(--soft); }
+  /* IINA's inside sidebar overlays the video without changing its canvas or crop. */
+  .iina-workspace { position:relative;height:650px; }
+  .player { height:100%;min-width:0;display:flex;flex-direction:column;background:#090b0e;color:#f5f5f5; }
+  .video-picture { position:relative;flex:1;min-height:0;overflow:hidden;display:grid;place-items:center; }
+  .video-picture img { position:absolute;width:100%;height:100%;object-fit:cover;object-position:center 35%;opacity:.85; }
+  .video-title { position:absolute;bottom:35px;left:30px;font:500 38px/1.1 Georgia,serif;background:#090b0e;padding:4px 10px;border-radius:4px; }
+  .player-controls { padding:18px 24px;background:#16191e;margin-left:340px; }
+  .sidebar-closed .player-controls { margin-left:0; }
+  .timeline { display:flex;align-items:center;gap:12px;font:11px/1.5 ui-monospace,monospace;color:#c3ccd5; }
+  .timeline input { width:100%;min-width:0;accent-color:#9acafa; }
+  .playback-row { display:flex;justify-content:center;gap:12px;margin-top:12px; }
+  .playback-row button { min-height:36px;min-width:44px;border:0;border-radius:5px;background:#282e35;color:#f3f5f7;font:12px/1.5 -apple-system,sans-serif;cursor:pointer; }
+  #player-play { min-width:70px; }.sidebar-tabs { display:flex;gap:24px;padding:10px 16px;font:12px/1.5 -apple-system,sans-serif;color:var(--muted);border-bottom:1px solid var(--line); }.sidebar-tabs strong { color:var(--accent); }
+  #metadata-sidebar { position:absolute;z-index:1;inset:0 auto 0 0;width:340px;max-width:100%;display:flex;flex-direction:column;min-width:0;border-right:1px solid var(--line);background:var(--surface); }
+  .demo-toolbar { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:8px 12px; border-bottom:1px solid var(--line); font:12px/1.5 -apple-system,BlinkMacSystemFont,sans-serif; color:var(--muted); }
+  .demo-toolbar button { background:transparent; border:1px solid var(--line); border-radius:4px; min-height:32px; padding:4px 10px; color:var(--ink); }
+  iframe { display:block; width:100%;flex:1;min-height:0; border:0; color-scheme:normal; }
+  img { display:block; width:100%; height:auto; }
+  [hidden] { display:none!important; }
+</style>

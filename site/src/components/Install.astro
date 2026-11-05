@@ -1,0 +1,5 @@
+---
+import data from '../content.json';
+import Code from './Code.astro';
+---
+<section class="install section" id="install" aria-labelledby="install-title"><div class="install-intro"><h2 id="install-title">{data.cta}</h2><p>{data.installIntro}</p><div class="resource-links">{data.installLinks.map(link => <a href={link.url}>{link.label}</a>)}</div></div><ol class="install-steps">{data.installSteps.map(step => <li><h3>{step.title}</h3><p>{step.body}</p>{step.code && <Code code={step.code} />}</li>)}</ol><div class="saving-options"><details><summary>{data.optionalInstall.title}</summary><p>{data.optionalInstall.body}</p><Code code={data.optionalInstall.code} /></details><p>MP4 saves have no backup. Review the proposed changes before saving.</p><p>Title searches go to TMDB or TVmaze; videos are not uploaded. <a href={data.docs[0].url}>Formats, settings & recovery</a></p></div></section>
