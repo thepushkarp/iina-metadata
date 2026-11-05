@@ -1,0 +1,176 @@
+{
+  "seoTitle": "Metadata for IINA — Identify Movies and Save Metadata",
+  "socialImageAlt": "Metadata for IINA. There’s a story behind that filename. iina-metadata.thepushkarp.com",
+  "operatingSystem": "macOS",
+  "name": "Metadata for IINA",
+  "shortName": "Metadata for IINA",
+  "tagline": "Give your movies their names back.",
+  "description": "An IINA plugin that identifies local movies and TV episodes, shows their details, and saves metadata and artwork inside files and alongside them.",
+  "headline": "There’s a story\nbehind that filename.",
+  "intro": "Identify movies and TV episodes in IINA. Review the match, then save metadata and artwork with your video.",
+  "category": "A plugin for IINA on macOS",
+  "cta": "Add to IINA",
+  "requirements": [
+    "Tested with IINA 1.5",
+    "Local video files",
+    "Free & open source"
+  ],
+  "repo": "https://github.com/thepushkarp/iina-metadata",
+  "demoCaption": "Actual IINA plugin sidebar rendered with staged Spring metadata and a licensed Blender Studio poster. Nothing is written by this website.",
+  "benefits": [
+    {
+      "title": "Meet the movie you opened.",
+      "body": "Identify movies and TV episodes from filenames and folders. View artwork, overview, cast, and crew in a Metadata sidebar."
+    },
+    {
+      "title": "Check the match first.",
+      "body": "Fix an uncertain match by title, year, or type. Review exactly what will be written before pressing Save to file."
+    },
+    {
+      "title": "Let the details travel.",
+      "body": "Write tags into supported video files, and save .nfo files and artwork alongside them for your other media apps."
+    }
+  ],
+  "workflowTitle": "A better library starts with one file.",
+  "workflowIntro": "Open a local video in IINA, then choose Plugin → Metadata → Show Metadata. The plugin looks for a match and shows what it found.",
+  "examples": [
+    {
+      "title": "Recognise",
+      "code": "Spring.2019.1080p.mkv",
+      "body": "Title and year help identify a movie. Episodes can use S01E02 or a season-folder layout."
+    },
+    {
+      "title": "Review",
+      "code": "",
+      "body": "Choose the right title and review the “Will write” list in the sidebar."
+    },
+    {
+      "title": "Save",
+      "code": "",
+      "body": "Save embedded tags and the selected sidecar files. Nothing is written until you choose to save."
+    }
+  ],
+  "tableTitle": "Inside the file. Beside the file.",
+  "tableIntro": "Choose embedded tags, sidecars, or both in the plugin’s preferences. Support in your player depends on its settings and the file format.",
+  "columns": [
+    "Destination",
+    "What gets written",
+    "Required tool"
+  ],
+  "rows": [
+    [
+      "MKV / MKA / WebM",
+      "Title, tags, poster and landscape artwork",
+      "MKVToolNix"
+    ],
+    [
+      "MP4 / M4V",
+      "iTunes-compatible metadata and cover",
+      "AtomicParsley"
+    ],
+    [
+      "Alongside videos",
+      ".nfo, posters, backdrops and episode artwork",
+      "No tagging tools"
+    ],
+    [
+      "Other video formats",
+      "Sidecars and artwork only",
+      "No tagging tools"
+    ]
+  ],
+  "installIntro": "Install the plugin, then open a local video.",
+  "installSteps": [
+    {
+      "title": "Add the plugin",
+      "body": "In IINA, go to Settings → Plugins → Install from GitHub and enter:",
+      "code": "thepushkarp/iina-metadata"
+    },
+    {
+      "title": "Connect TMDB",
+      "body": "Open Plugin → Metadata → Show Metadata and add your TMDB API Read Access Token. TV episodes can use TVmaze without a token.",
+      "code": ""
+    },
+    {
+      "title": "Review and save",
+      "body": "Check the match and the “Will write” list, then choose Save to file. Nothing changes until you save.",
+      "code": ""
+    }
+  ],
+  "installLinks": [
+    {
+      "label": "Download a release",
+      "url": "https://github.com/thepushkarp/iina-metadata/releases/latest"
+    },
+    {
+      "label": "Get IINA",
+      "url": "https://iina.io/"
+    },
+    {
+      "label": "Get a TMDB token",
+      "url": "https://www.themoviedb.org/settings/api"
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does it change files automatically?",
+      "a": "No. It shows a match and a list of proposed writes. You must press Save to file. Existing sidecars and artwork are moved to Trash when replaced, unless you choose to keep them."
+    },
+    {
+      "q": "Does it work with Infuse or Kodi?",
+      "a": "It supports Infuse-style and Kodi/Jellyfin-style sidecar names. In Infuse, enable Prefer Local Artwork. Infuse uses movie .nfo files, but ignores TV .nfo files. Embedded metadata also depends on Infuse’s metadata-fetching settings."
+    },
+    {
+      "q": "What happens to my data?",
+      "a": "Search terms derived from filenames/folders and IDs are sent to TMDB or TVmaze. Videos are not uploaded. The TMDB token stays in Keychain; responses are cached locally for a week."
+    },
+    {
+      "q": "Can I undo a save?",
+      "a": "Replaced sidecars and artwork are in Trash. Original MKV tags are backed up once. MP4 files do not keep a backup; check the proposed changes before saving. See the README for recovery instructions."
+    },
+    {
+      "q": "Are there any format limitations?",
+      "a": "Only local files are supported. Air-date episode filenames are not recognised; use S01E02 or a season folder. Multi-episode files get the first episode’s metadata. An MP4 rewrite can need free space about the size of the file."
+    }
+  ],
+  "docs": [
+    {
+      "label": "Usage & configuration",
+      "url": "https://github.com/thepushkarp/iina-metadata#using-it"
+    },
+    {
+      "label": "Infuse compatibility",
+      "url": "https://github.com/thepushkarp/iina-metadata#seeing-it-in-infuse"
+    }
+  ],
+  "agentIntro": "This is an IINA desktop plugin, not a standalone CLI or public API. Guide a user through installation and matching, or use authorised desktop interaction.",
+  "slug": "iina-metadata",
+  "url": "https://iina-metadata.thepushkarp.com",
+  "screenshots": [
+    {
+      "src": "/screenshots/movie.png",
+      "darkSrc": "/screenshots/movie-dark.png",
+      "label": "Metadata",
+      "alt": "The actual IINA Metadata sidebar showing Spring, its licensed poster, a confident match, and the planned embedded metadata, NFO and poster writes.",
+      "width": 390,
+      "height": 680
+    }
+  ],
+  "artwork": [
+    {
+      "title": "Spring — Pillar poster",
+      "creator": "Blender Studio",
+      "url": "https://studio.blender.org/projects/spring/",
+      "source": "https://studio.blender.org/projects/api/assets/909/?site_context=featured_artwork",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "file": "/artwork/spring.jpg"
+    }
+  ],
+  "optionalInstall": {
+    "title": "Save tags inside MKV or MP4 files",
+    "body": "Optional: install these tools for embedded tags. Without them, metadata and artwork can still be saved alongside your video.",
+    "code": "brew install mkvtoolnix atomicparsley"
+  },
+  "interactiveDemo": "The preview shows an IINA player window with the real Metadata sidebar. Use the Metadata button or Plugin → Metadata → Show Metadata to reveal the sidebar, correct the Spring match, and try Save to file. Player controls use poster artwork and a simulated timeline; no video or audio is streamed. Metadata searches and saves use an in-memory bridge, without provider requests or file writes."
+}

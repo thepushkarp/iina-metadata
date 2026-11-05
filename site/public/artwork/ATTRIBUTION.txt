@@ -1,0 +1,6 @@
+Spring — Pillar poster
+Creator: Blender Studio
+Source: https://studio.blender.org/projects/api/assets/909/?site_context=featured_artwork
+Film: https://studio.blender.org/projects/spring/
+License: https://creativecommons.org/licenses/by/4.0/
+Changes: source JPEG reproduced unchanged; scaled to fit the landing page and app screenshots. Inclusion does not imply endorsement.
